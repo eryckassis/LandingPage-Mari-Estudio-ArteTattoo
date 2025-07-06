@@ -1,7 +1,7 @@
 
-import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MessageCircle, MapPin, Clock, Phone } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { MessageCircle, Instagram, MapPin, Clock, Phone, Mail } from "lucide-react";
 
 const Contact = () => {
   const handleWhatsAppClick = () => {
@@ -11,125 +11,156 @@ const Contact = () => {
     window.open(whatsappUrl, '_blank');
   };
 
+  const handleInstagramClick = () => {
+    window.open('https://instagram.com/maritattooarte', '_blank');
+  };
+
+  const contactInfo = [
+    {
+      icon: MapPin,
+      title: "Localização",
+      info: "Rua dos Artistas, 123",
+      subtitle: "São Paulo - SP",
+      action: () => window.open('https://maps.google.com', '_blank')
+    },
+    {
+      icon: Clock,
+      title: "Horário",
+      info: "Seg - Sex: 9h às 18h",
+      subtitle: "Sáb: 9h às 15h"
+    },
+    {
+      icon: Phone,
+      title: "Telefone",
+      info: "(11) 99999-9999",
+      subtitle: "WhatsApp disponível",
+      action: handleWhatsAppClick
+    },
+    {
+      icon: Mail,
+      title: "Email",
+      info: "contato@maritattoo.com",
+      subtitle: "Resposta em 24h",
+      action: () => window.open('mailto:contato@maritattoo.com', '_blank')
+    }
+  ];
+
   return (
-    <section id="contact" className="py-12 sm:py-16 lg:py-20 px-4 bg-black/30">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold neon-text mb-4">
-            AGENDE AGORA
+    <section id="contact" className="py-16 sm:py-20 lg:py-24 px-4 bg-gradient-to-t from-black via-purple-950/20 to-black">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16 sm:mb-20">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6">
+            CON
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-violet-400">TATO</span>
           </h2>
-          <div className="w-16 sm:w-24 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-lg sm:text-xl text-muted-foreground px-4">
-            Pronto para transformar sua ideia em arte? Entre em contato conosco.
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-fuchsia-400 mx-auto mb-6 rounded-full"></div>
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Vamos transformar suas ideias em arte permanente. Entre em contato e 
+            comece sua jornada artística.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 sm:gap-12">
-          {/* Left side - Process */}
-          <Card className="glass-effect border-primary/20">
-            <CardContent className="p-6 sm:p-8">
-              <h3 className="text-xl sm:text-2xl font-bold text-primary mb-6 sm:mb-8 text-center">Como Funciona</h3>
-              <div className="space-y-4 sm:space-y-6">
-                <div className="flex items-start space-x-3 sm:space-x-4">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center text-sm font-bold text-black mt-1 flex-shrink-0">1</div>
-                  <div>
-                    <h4 className="text-sm sm:text-base font-semibold text-white mb-1 sm:mb-2">Primeiro Contato</h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Clique no botão WhatsApp e nos conte sua ideia inicial</p>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
+          {contactInfo.map((item, index) => {
+            const Icon = item.icon;
+            return (
+              <Card 
+                key={index} 
+                className={`glass-card border-purple-400/20 hover:border-purple-400/40 transition-all duration-300 hover-lift ${item.action ? 'cursor-pointer' : ''}`}
+                onClick={item.action}
+              >
+                <CardContent className="p-6 sm:p-8 text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500/20 to-fuchsia-500/20 rounded-2xl mb-4">
+                    <Icon className="h-8 w-8 text-purple-400" />
                   </div>
-                </div>
-                
-                <div className="flex items-start space-x-3 sm:space-x-4">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center text-sm font-bold text-black mt-1 flex-shrink-0">2</div>
-                  <div>
-                    <h4 className="text-sm sm:text-base font-semibold text-white mb-1 sm:mb-2">Consulta Personalizada</h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Agendamos uma consulta para discutir detalhes, estilo e orçamento</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3 sm:space-x-4">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center text-sm font-bold text-black mt-1 flex-shrink-0">3</div>
-                  <div>
-                    <h4 className="text-sm sm:text-base font-semibold text-white mb-1 sm:mb-2">Criação do Design</h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Desenvolvemos um design único e personalizado para você</p>
-                  </div>
-                </div>
-                
-                <div className="flex items-start space-x-3 sm:space-x-4">
-                  <div className="w-7 h-7 sm:w-8 sm:h-8 bg-primary rounded-full flex items-center justify-center text-sm font-bold text-black mt-1 flex-shrink-0">4</div>
-                  <div>
-                    <h4 className="text-sm sm:text-base font-semibold text-white mb-1 sm:mb-2">Sessão de Tatuagem</h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Transformamos sua ideia em arte permanente com total segurança</p>
-                  </div>
-                </div>
-              </div>
+                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <p className="text-gray-300 font-medium mb-1">{item.info}</p>
+                  <p className="text-gray-500 text-sm">{item.subtitle}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
 
-              <div className="mt-6 sm:mt-8 pt-6 sm:pt-8 border-t border-primary/20">
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Contact methods */}
+          <div className="space-y-6">
+            <div className="glass-card border-purple-400/20 rounded-2xl p-8 sm:p-10">
+              <h3 className="text-2xl sm:text-3xl font-bold text-white mb-6">
+                Vamos conversar!
+              </h3>
+              <p className="text-gray-300 mb-8 leading-relaxed">
+                Agende sua consulta gratuita e vamos planejar juntos a sua próxima tatuagem. 
+                Atendimento personalizado para garantir que sua arte seja única.
+              </p>
+              
+              <div className="space-y-4">
                 <Button
                   onClick={handleWhatsAppClick}
                   size="lg"
-                  className="w-full neon-border bg-primary hover:bg-primary/80 text-black font-bold text-base sm:text-lg px-6 sm:px-8 py-5 sm:py-6"
+                  className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 text-lg rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-green-500/20"
                 >
-                  <MessageCircle className="mr-2 h-5 w-5 sm:h-6 sm:w-6" />
-                  CONVERSAR NO WHATSAPP
+                  <MessageCircle className="mr-3 h-6 w-6" />
+                  Chamar no WhatsApp
+                </Button>
+                
+                <Button
+                  onClick={handleInstagramClick}
+                  variant="outline"
+                  size="lg"
+                  className="w-full border-2 border-purple-400/60 text-purple-400 hover:bg-purple-400/10 hover:border-purple-400 py-4 text-lg rounded-xl transition-all duration-300"
+                >
+                  <Instagram className="mr-3 h-6 w-6" />
+                  Seguir no Instagram
                 </Button>
               </div>
-            </CardContent>
-          </Card>
-
-          {/* Right side - Info */}
-          <div className="space-y-4 sm:space-y-6">
-            <Card className="glass-effect border-primary/20">
-              <CardContent className="p-4 sm:p-6">
-                <div className="flex items-start space-x-3 sm:space-x-4 mb-4">
-                  <MapPin className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="text-sm sm:text-base font-semibold text-white mb-1">Localização</h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Rua dos Artistas, 123 - Vila Madalena, São Paulo - SP</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-effect border-primary/20">
-              <CardContent className="p-4 sm:p-6">
-                <div className="flex items-start space-x-3 sm:space-x-4 mb-4">
-                  <Clock className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="text-sm sm:text-base font-semibold text-white mb-1">Horário de Funcionamento</h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Segunda a Sábado: 9h às 18h</p>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Domingo: Fechado</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-effect border-primary/20">
-              <CardContent className="p-4 sm:p-6">
-                <div className="flex items-start space-x-3 sm:space-x-4 mb-4">
-                  <Phone className="h-5 w-5 sm:h-6 sm:w-6 text-primary flex-shrink-0 mt-1" />
-                  <div>
-                    <h4 className="text-sm sm:text-base font-semibold text-white mb-1">Contato</h4>
-                    <p className="text-xs sm:text-sm text-muted-foreground">(11) 99999-9999</p>
-                    <p className="text-xs sm:text-sm text-muted-foreground">mari@tattooarte.com</p>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-
-            {/* CTA Card */}
-            <Card className="glass-effect border-primary/20 bg-primary/5">
-              <CardContent className="p-4 sm:p-6 text-center">
-                <h4 className="text-lg sm:text-xl font-bold text-primary mb-2 sm:mb-3">Pronto para começar?</h4>
-                <p className="text-xs sm:text-sm text-muted-foreground mb-3 sm:mb-4">
-                  Sua próxima obra de arte está a um clique de distância
-                </p>
-                <div className="flex items-center justify-center space-x-2 text-primary">
-                  <MessageCircle className="h-4 w-4 sm:h-5 sm:w-5" />
-                  <span className="text-xs sm:text-sm font-medium">Resposta em até 30 minutos</span>
-                </div>
-              </CardContent>
-            </Card>
+            </div>
           </div>
+
+          {/* Process info */}
+          <div className="space-y-6">
+            <div className="glass-card border-fuchsia-400/20 rounded-2xl p-8 sm:p-10">
+              <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">Como funciona?</h4>
+              <div className="space-y-6">
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-purple-400 to-fuchsia-400 rounded-full flex items-center justify-center text-black font-bold text-sm">
+                    1
+                  </div>
+                  <div>
+                    <h5 className="font-bold text-white mb-1">Consulta</h5>
+                    <p className="text-gray-400 text-sm">Conversamos sobre sua ideia e definimos o design</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-fuchsia-400 to-violet-400 rounded-full flex items-center justify-center text-black font-bold text-sm">
+                    2
+                  </div>
+                  <div>
+                    <h5 className="font-bold text-white mb-1">Agendamento</h5>
+                    <p className="text-gray-400 text-sm">Marcamos data e horário que melhor funciona para você</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-4">
+                  <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full flex items-center justify-center text-black font-bold text-sm">
+                    3
+                  </div>
+                  <div>
+                    <h5 className="font-bold text-white mb-1">Criação</h5>
+                    <p className="text-gray-400 text-sm">Sua arte ganha vida com total segurança e qualidade</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Footer */}
+        <div className="text-center mt-16 pt-8 border-t border-purple-400/20">
+          <p className="text-gray-500 text-sm">
+            © 2024 Mari Tattoo Arte. Todos os direitos reservados.
+          </p>
         </div>
       </div>
     </section>

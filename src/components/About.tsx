@@ -1,78 +1,114 @@
 
 import { Card, CardContent } from "@/components/ui/card";
+import { Palette, Heart, Shield, Star } from "lucide-react";
 
 const About = () => {
+  const features = [
+    {
+      icon: Palette,
+      title: "Arte Personalizada",
+      description: "Cada tatuagem é única, criada especialmente para você com técnicas avançadas e criatividade sem limites."
+    },
+    {
+      icon: Heart,
+      title: "Paixão pela Arte",
+      description: "Transformo ideias em arte permanente, criando conexões emocionais através de cada traço e cor."
+    },
+    {
+      icon: Shield,
+      title: "Segurança Total",
+      description: "Ambiente completamente esterilizado, materiais descartáveis e protocolos rigorosos de higiene."
+    },
+    {
+      icon: Star,
+      title: "Excelência",
+      description: "Mais de 10 anos de experiência criando tatuagens que superam expectativas e contam histórias."
+    }
+  ];
+
   return (
-    <section id="about" className="py-12 sm:py-16 lg:py-20 px-4 bg-black/20">
-      <div className="max-w-6xl mx-auto">
-        <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold neon-text mb-4">
-            SOBRE NÓS
+    <section id="about" className="py-16 sm:py-20 lg:py-24 px-4 bg-gradient-to-b from-black via-purple-950/20 to-black">
+      <div className="max-w-7xl mx-auto">
+        <div className="text-center mb-16 sm:mb-20">
+          <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6">
+            SOBRE 
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-violet-400"> MIM</span>
           </h2>
-          <div className="w-16 sm:w-24 h-1 bg-primary mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-            Arte, paixão e técnica se encontram para criar experiências únicas
+          <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-fuchsia-400 mx-auto mb-6 rounded-full"></div>
+          <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            Arte, técnica e paixão se encontram para criar experiências únicas na sua pele
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 sm:gap-12 items-center">
-          <div className="space-y-4 sm:space-y-6">
-            <Card className="glass-effect border-primary/20">
-              <CardContent className="p-4 sm:p-6">
-                <h3 className="text-xl sm:text-2xl font-bold text-primary mb-3 sm:mb-4">Nossa Arte</h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  No Mari Tattoo Arte, cada tatuagem é uma obra única. Combinamos técnicas 
-                  tradicionais com inovação artística para criar peças que contam sua história 
-                  de forma inesquecível. Cada cliente é uma tela em branco esperando para 
-                  ser transformada em arte.
-                </p>
-              </CardContent>
-            </Card>
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 mb-16">
+          {features.map((feature, index) => {
+            const Icon = feature.icon;
+            return (
+              <Card key={index} className="glass-card border-purple-400/20 hover:border-purple-400/40 transition-all duration-300 hover-lift">
+                <CardContent className="p-6 sm:p-8 text-center">
+                  <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500/20 to-fuchsia-500/20 rounded-2xl mb-4">
+                    <Icon className="h-8 w-8 text-purple-400" />
+                  </div>
+                  <h3 className="text-xl font-bold text-white mb-3">{feature.title}</h3>
+                  <p className="text-gray-400 leading-relaxed text-sm">{feature.description}</p>
+                </CardContent>
+              </Card>
+            );
+          })}
+        </div>
 
-            <Card className="glass-effect border-primary/20">
-              <CardContent className="p-4 sm:p-6">
-                <h3 className="text-xl sm:text-2xl font-bold text-primary mb-3 sm:mb-4">Experiência</h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  Com mais de 5 anos de experiência e centenas de clientes satisfeitos, 
-                  nossa equipe está preparada para transformar suas ideias em arte permanente 
-                  com total segurança, higiene e qualidade profissional.
-                </p>
-              </CardContent>
-            </Card>
-
-            <Card className="glass-effect border-primary/20">
-              <CardContent className="p-4 sm:p-6">
-                <h3 className="text-xl sm:text-2xl font-bold text-primary mb-3 sm:mb-4">Compromisso</h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
-                  Nosso compromisso vai além da arte. Garantimos um ambiente seguro, 
-                  esterilizado e confortável, onde você pode se expressar livremente 
-                  e criar memórias que durarão para sempre.
-                </p>
-              </CardContent>
-            </Card>
+        <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
+          {/* Stats section */}
+          <div className="grid grid-cols-2 gap-6 sm:gap-8">
+            <div className="text-center glass-card border-purple-400/20 rounded-2xl p-6 sm:p-8">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-fuchsia-400 mb-2">10K+</div>
+              <div className="text-sm text-gray-400 font-medium">Clientes Felizes</div>
+            </div>
+            <div className="text-center glass-card border-fuchsia-400/20 rounded-2xl p-6 sm:p-8">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-violet-400 mb-2">10+</div>
+              <div className="text-sm text-gray-400 font-medium">Anos de Experiência</div>
+            </div>
+            <div className="text-center glass-card border-violet-400/20 rounded-2xl p-6 sm:p-8">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-violet-400 to-purple-400 mb-2">2K+</div>
+              <div className="text-sm text-gray-400 font-medium">Obras Criadas</div>
+            </div>
+            <div className="text-center glass-card border-purple-300/20 rounded-2xl p-6 sm:p-8">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-purple-500 mb-2">100%</div>
+              <div className="text-sm text-gray-400 font-medium">Satisfação</div>
+            </div>
           </div>
 
+          {/* Mission statement */}
           <div className="space-y-6 sm:space-y-8">
-            {/* Stats */}
-            <div className="grid grid-cols-2 gap-4 sm:gap-6">
-              <div className="text-center glass-effect border-primary/20 rounded-lg p-4 sm:p-6">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">5+</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">Anos de Experiência</div>
-              </div>
-              <div className="text-center glass-effect border-primary/20 rounded-lg p-4 sm:p-6">
-                <div className="text-2xl sm:text-3xl lg:text-4xl font-bold text-primary mb-2">500+</div>
-                <div className="text-xs sm:text-sm text-muted-foreground">Clientes Satisfeitos</div>
+            <div className="glass-card border-purple-400/20 rounded-2xl p-8 sm:p-10">
+              <h4 className="text-2xl sm:text-3xl font-bold text-white mb-6 text-center">Minha Missão</h4>
+              <blockquote className="text-lg text-gray-300 leading-relaxed text-center italic">
+                "Transformar pele em tela, ideias em arte permanente. 
+                Cada tatuagem que crio é uma história única, uma expressão 
+                da personalidade e dos sonhos de quem confia em mim para 
+                eternizar momentos especiais."
+              </blockquote>
+              <div className="text-center mt-6">
+                <div className="inline-block w-16 h-1 bg-gradient-to-r from-purple-400 to-fuchsia-400 rounded-full"></div>
               </div>
             </div>
 
-            {/* Mission */}
-            <div className="glass-effect border-primary/20 rounded-lg p-6 sm:p-8">
-              <h4 className="text-lg sm:text-xl font-bold text-primary mb-3 sm:mb-4 text-center">Nossa Missão</h4>
-              <p className="text-sm sm:text-base text-muted-foreground text-center leading-relaxed">
-                "Transformar pele em arte através da tinta e da criatividade, 
-                criando conexões duradouras entre o artista e o cliente, 
-                onde cada tatuagem conta uma história única."
-              </p>
+            <div className="glass-card border-fuchsia-400/20 rounded-2xl p-6 sm:p-8">
+              <h5 className="text-xl font-bold text-white mb-4">Por que escolher meu trabalho?</h5>
+              <ul className="space-y-3 text-gray-300">
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-purple-400 rounded-full mr-3"></div>
+                  Atendimento personalizado e consultoria artística
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-fuchsia-400 rounded-full mr-3"></div>
+                  Técnicas modernas e equipamentos de última geração
+                </li>
+                <li className="flex items-center">
+                  <div className="w-2 h-2 bg-violet-400 rounded-full mr-3"></div>
+                  Acompanhamento completo do processo de cicatrização
+                </li>
+              </ul>
             </div>
           </div>
         </div>
