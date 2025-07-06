@@ -1,7 +1,5 @@
-
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Users, Calendar, Award } from "lucide-react";
-
 const Hero = () => {
   const handleWhatsAppClick = () => {
     const phoneNumber = "5511999999999";
@@ -9,9 +7,7 @@ const Hero = () => {
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
     window.open(whatsappUrl, '_blank');
   };
-
-  return (
-    <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-black via-purple-950/30 to-violet-900/20">
+  return <section id="home" className="relative min-h-screen overflow-hidden bg-gradient-to-br from-black via-purple-950/30 to-violet-900/20">
       {/* Animated background particles */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-400 rounded-full animate-pulse opacity-60"></div>
@@ -50,35 +46,14 @@ const Hero = () => {
 
             {/* CTA Button */}
             <div className="mb-8">
-              <Button
-                onClick={handleWhatsAppClick}
-                size="lg"
-                className="bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-600 hover:to-fuchsia-600 text-white font-bold px-8 py-6 text-lg rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30 hover:scale-105 border-0"
-              >
+              <Button onClick={handleWhatsAppClick} size="lg" className="bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-600 hover:to-fuchsia-600 text-white font-bold px-8 py-6 text-lg rounded-2xl transition-all duration-300 hover:shadow-2xl hover:shadow-purple-500/30 hover:scale-105 border-0">
                 <MessageCircle className="mr-3 h-6 w-6" />
                 Agendar Sessão
               </Button>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 sm:gap-6">
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-purple-400 mb-1">10K+</div>
-                <div className="text-xs sm:text-sm text-gray-400">Clientes</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-fuchsia-400 mb-1">10+</div>
-                <div className="text-xs sm:text-sm text-gray-400">Anos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-violet-400 mb-1">2K+</div>
-                <div className="text-xs sm:text-sm text-gray-400">Projetos</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl sm:text-3xl font-bold text-purple-300 mb-1">1K+</div>
-                <div className="text-xs sm:text-sm text-gray-400">Estilos</div>
-              </div>
-            </div>
+            
           </div>
 
           {/* Right side - Cyberpunk Art */}
@@ -87,11 +62,7 @@ const Hero = () => {
               {/* Main image container */}
               <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px] rounded-full overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-fuchsia-500/20 to-violet-500/20 rounded-full animate-pulse"></div>
-                <img 
-                  src="/lovable-uploads/e3ad36b4-367a-4e0f-a156-dd24ab626503.png" 
-                  alt="Cyberpunk Tattoo Art" 
-                  className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
-                />
+                <img src="/lovable-uploads/e3ad36b4-367a-4e0f-a156-dd24ab626503.png" alt="Cyberpunk Tattoo Art" className="w-full h-full object-cover transition-transform duration-700 hover:scale-110" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-full"></div>
               </div>
 
@@ -104,52 +75,17 @@ const Hero = () => {
 
         {/* Floating testimonial cards */}
         <div className="hidden lg:block absolute top-20 right-20 max-w-xs">
-          <div className="glass-card p-4 rounded-2xl border border-purple-400/20 bg-black/40 backdrop-blur-md">
-            <div className="flex items-center space-x-3 mb-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-purple-400 to-fuchsia-400 rounded-full"></div>
-              <div>
-                <div className="text-sm font-medium text-white">@future_vibes</div>
-              </div>
-            </div>
-            <p className="text-xs text-gray-300">
-              Trabalho incrível! A atenção aos detalhes é impressionante. 
-              Profissionalismo de primeira.
-            </p>
-          </div>
+          
         </div>
 
         <div className="hidden lg:block absolute bottom-32 left-20 max-w-xs">
-          <div className="glass-card p-4 rounded-2xl border border-fuchsia-400/20 bg-black/40 backdrop-blur-md">
-            <div className="flex items-center space-x-3 mb-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-fuchsia-400 to-violet-400 rounded-full"></div>
-              <div>
-                <div className="text-sm font-medium text-white">@neonbeats</div>
-              </div>
-            </div>
-            <p className="text-xs text-gray-300">
-              Arte única em cada sessão. Muito talentosa e profissional. 
-              Recomendo para todos os estilos.
-            </p>
-          </div>
+          
         </div>
 
         <div className="hidden lg:block absolute top-1/2 right-4 max-w-xs">
-          <div className="glass-card p-4 rounded-2xl border border-violet-400/20 bg-black/40 backdrop-blur-md">
-            <div className="flex items-center space-x-3 mb-2">
-              <div className="w-8 h-8 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full"></div>
-              <div>
-                <div className="text-sm font-medium text-white">@maria_2025</div>
-              </div>
-            </div>
-            <p className="text-xs text-gray-300">
-              Desde a primeira consulta até o resultado final, 
-              experiência incrível. Arte que conta histórias.
-            </p>
-          </div>
+          
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
