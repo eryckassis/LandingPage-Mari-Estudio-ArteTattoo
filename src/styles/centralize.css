@@ -1,0 +1,24 @@
+body,
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.centralize-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Centraliza verticalmente */
+  align-items: center; /* Centraliza horizontalmente */
+  background: #16131e; /* Mantenha o fundo escuro, ajuste se necessário */
+  padding: 16px; /* Espaço nas bordas para telas pequenas */
+  box-sizing: border-box;
+}
+
+/* Responsividade extra para telas muito pequenas */
+@media (max-width: 480px) {
+  .centralize-container {
+    padding: 8px;
+  }
+}

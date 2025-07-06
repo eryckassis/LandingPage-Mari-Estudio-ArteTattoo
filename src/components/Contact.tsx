@@ -1,61 +1,74 @@
-
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import { MessageCircle, Instagram, MapPin, Clock, Phone, Mail } from "lucide-react";
+import {
+  MessageCircle,
+  Instagram,
+  MapPin,
+  Clock,
+  Phone,
+  Mail,
+} from "lucide-react";
 
 const Contact = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "5511999999999";
+    const phoneNumber = "553587057922";
     const message = "Olá! Gostaria de agendar uma sessão de tatuagem.";
-    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
-    window.open(whatsappUrl, '_blank');
+    const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
+      message
+    )}`;
+    window.open(whatsappUrl, "_blank");
   };
 
   const handleInstagramClick = () => {
-    window.open('https://instagram.com/maritattooarte', '_blank');
+    window.open("https://www.instagram.com/mari_tattooart888/", "_blank");
   };
 
   const contactInfo = [
     {
       icon: MapPin,
       title: "Localização",
-      info: "Rua dos Artistas, 123",
-      subtitle: "São Paulo - SP",
-      action: () => window.open('https://maps.google.com', '_blank')
+      info: "Rua barão do campo místico, 219",
+      subtitle: "Poços de Caldas - MG",
+      action: () => window.open("https://maps.google.com", "_blank"),
     },
     {
       icon: Clock,
       title: "Horário",
       info: "Seg - Sex: 9h às 18h",
-      subtitle: "Sáb: 9h às 15h"
+      subtitle: "Sáb: 9h às 15h",
     },
     {
       icon: Phone,
       title: "Telefone",
-      info: "(11) 99999-9999",
+      info: "(35) 8705-7922",
       subtitle: "WhatsApp disponível",
-      action: handleWhatsAppClick
+      action: handleWhatsAppClick,
     },
     {
       icon: Mail,
       title: "Email",
       info: "contato@maritattoo.com",
       subtitle: "Resposta em 24h",
-      action: () => window.open('mailto:contato@maritattoo.com', '_blank')
-    }
+      action: () => window.open("mailto:contato@maritattoo.com", "_blank"),
+    },
   ];
 
   return (
-    <section id="contact" className="py-16 sm:py-20 lg:py-24 px-4 bg-gradient-to-t from-black via-purple-950/20 to-black">
+    <section
+      id="contact"
+      className="py-16 sm:py-20 lg:py-24 px-4 bg-gradient-to-t from-black via-purple-950/20 to-black"
+    >
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16 sm:mb-20">
           <h2 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-6">
             CON
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-violet-400">TATO</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-violet-400">
+              TATO
+            </span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-purple-400 to-fuchsia-400 mx-auto mb-6 rounded-full"></div>
           <p className="text-lg sm:text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Vamos transformar suas ideias em arte permanente. Entre em contato e 
+            Vamos transformar suas ideias em arte permanente. Entre em contato e
             comece sua jornada artística.
           </p>
         </div>
@@ -64,16 +77,20 @@ const Contact = () => {
           {contactInfo.map((item, index) => {
             const Icon = item.icon;
             return (
-              <Card 
-                key={index} 
-                className={`glass-card border-purple-400/20 hover:border-purple-400/40 transition-all duration-300 hover-lift ${item.action ? 'cursor-pointer' : ''}`}
+              <Card
+                key={index}
+                className={`glass-card border-purple-400/20 hover:border-purple-400/40 transition-all duration-300 hover-lift ${
+                  item.action ? "cursor-pointer" : ""
+                }`}
                 onClick={item.action}
               >
                 <CardContent className="p-6 sm:p-8 text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-r from-purple-500/20 to-fuchsia-500/20 rounded-2xl mb-4">
                     <Icon className="h-8 w-8 text-purple-400" />
                   </div>
-                  <h3 className="text-lg font-bold text-white mb-2">{item.title}</h3>
+                  <h3 className="text-lg font-bold text-white mb-2">
+                    {item.title}
+                  </h3>
                   <p className="text-gray-300 font-medium mb-1">{item.info}</p>
                   <p className="text-gray-500 text-sm">{item.subtitle}</p>
                 </CardContent>
@@ -90,10 +107,11 @@ const Contact = () => {
                 Vamos conversar!
               </h3>
               <p className="text-gray-300 mb-8 leading-relaxed">
-                Agende sua consulta gratuita e vamos planejar juntos a sua próxima tatuagem. 
-                Atendimento personalizado para garantir que sua arte seja única.
+                Agende sua consulta gratuita e vamos planejar juntos a sua
+                próxima tatuagem. Atendimento personalizado para garantir que
+                sua arte seja única.
               </p>
-              
+
               <div className="space-y-4">
                 <Button
                   onClick={handleWhatsAppClick}
@@ -103,7 +121,7 @@ const Contact = () => {
                   <MessageCircle className="mr-3 h-6 w-6" />
                   Chamar no WhatsApp
                 </Button>
-                
+
                 <Button
                   onClick={handleInstagramClick}
                   variant="outline"
@@ -120,7 +138,9 @@ const Contact = () => {
           {/* Process info */}
           <div className="space-y-6">
             <div className="glass-card border-fuchsia-400/20 rounded-2xl p-8 sm:p-10">
-              <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">Como funciona?</h4>
+              <h4 className="text-xl sm:text-2xl font-bold text-white mb-6">
+                Como funciona?
+              </h4>
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-purple-400 to-fuchsia-400 rounded-full flex items-center justify-center text-black font-bold text-sm">
@@ -128,27 +148,33 @@ const Contact = () => {
                   </div>
                   <div>
                     <h5 className="font-bold text-white mb-1">Consulta</h5>
-                    <p className="text-gray-400 text-sm">Conversamos sobre sua ideia e definimos o design</p>
+                    <p className="text-gray-400 text-sm">
+                      Conversamos sobre sua ideia e definimos o design
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-fuchsia-400 to-violet-400 rounded-full flex items-center justify-center text-black font-bold text-sm">
                     2
                   </div>
                   <div>
                     <h5 className="font-bold text-white mb-1">Agendamento</h5>
-                    <p className="text-gray-400 text-sm">Marcamos data e horário que melhor funciona para você</p>
+                    <p className="text-gray-400 text-sm">
+                      Marcamos data e horário que melhor funciona para você
+                    </p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-4">
                   <div className="flex-shrink-0 w-8 h-8 bg-gradient-to-r from-violet-400 to-purple-400 rounded-full flex items-center justify-center text-black font-bold text-sm">
                     3
                   </div>
                   <div>
                     <h5 className="font-bold text-white mb-1">Criação</h5>
-                    <p className="text-gray-400 text-sm">Sua arte ganha vida com total segurança e qualidade</p>
+                    <p className="text-gray-400 text-sm">
+                      Sua arte ganha vida com total segurança e qualidade
+                    </p>
                   </div>
                 </div>
               </div>
