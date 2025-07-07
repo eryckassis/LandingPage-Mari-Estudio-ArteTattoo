@@ -11,7 +11,7 @@ import {
 
 const Contact = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "553587057922";
+    const phoneNumber = "3587057922";
     const message = "Olá! Gostaria de agendar uma sessão de tatuagem.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
@@ -28,7 +28,7 @@ const Contact = () => {
       icon: MapPin,
       title: "Localização",
       info: "Rua barão do campo místico, 219",
-      subtitle: "Poços de Caldas - MG",
+      subtitle: "Poços de Caldas - SP",
       action: () => window.open("https://maps.google.com", "_blank"),
     },
     {

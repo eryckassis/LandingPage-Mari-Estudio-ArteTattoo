@@ -1,24 +1,79 @@
-body,
-html {
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-
 .centralize-container {
   min-height: 100vh;
+  width: 100vw;
   display: flex;
   flex-direction: column;
-  justify-content: center; /* Centraliza verticalmente */
-  align-items: center; /* Centraliza horizontalmente */
-  background: #16131e; /* Mantenha o fundo escuro, ajuste se necessário */
-  padding: 16px; /* Espaço nas bordas para telas pequenas */
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
   box-sizing: border-box;
+  background: linear-gradient(135deg, #181024 0%, #211135 100%);
 }
 
-/* Responsividade extra para telas muito pequenas */
-@media (max-width: 480px) {
-  .centralize-container {
-    padding: 8px;
+/* Torna todos os elementos internos centralizados */
+.centralize-container > * {
+  width: 100%;
+  max-width: 350px; /* Limita a largura no mobile */
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Imagem do Hero */
+.hero-image {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 4px 32px #0006;
+}
+
+/* Título e textos centralizados */
+.hero-title,
+.hero-description {
+  text-align: center;
+  width: 100%;
+}
+
+.hero-title {
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin: 1rem 0 0.5rem 0;
+}
+
+.hero-description {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  color: #dedede;
+}
+
+.hero-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 0.8rem;
+  background: #b362ff;
+  color: #fff;
+  font-weight: 700;
+  border: none;
+  cursor: pointer;
+  margin-top: 1rem;
+  width: 100%;
+  max-width: 270px;
+}
+
+@media (min-width: 600px) {
+  .centralize-container > * {
+    max-width: 420px;
+  }
+  .hero-image {
+    width: 260px;
+    height: 260px;
   }
 }
