@@ -20,10 +20,10 @@ const Hero = () => {
       <div
         className="
           fixed inset-0 z-0 pointer-events-none
-          bg-[url('/lovable-uploads/imagem-fundo.jpg')] bg-cover bg-center bg-no-repeat
-          dark:bg-[url('/lovable-uploads/fundo-escuro.png')]
-          transition-colors duration-500
-          filter blur-[2px] brightness-70 dark:brightness-40
+          bg-[url('/lovable-uploads/claro.jpeg')] bg-cover bg-center bg-no-repeat
+          dark:bg-[url('/lovable-uploads/nuvens.png')]
+          transition-colors duration-1000
+         filter blur-[2px] brightness-70 dark:brightness-40
         "
         aria-hidden="true"
       />
@@ -42,7 +42,7 @@ const Hero = () => {
           <div className="space-y-6 sm:space-y-8 order-2 lg:order-1 flex flex-col items-center text-center max-w-md mx-auto">
             {/* Studio branding */}
             <div className="mb-6">
-              <div className="font-anton text-4xl sm:text-5xl md:text-6xl font-black uppercase mb-2 tracking-wider flex items-center justify-center gap-2">
+              <div className="font-anton text-4xl sm:text-5xl md:text-6xl font-black text-white transition-colors duration-100000 uppercase mb-2 tracking-wider flex items-center justify-center gap-2 ">
                 ESTÚDIO MARI TATTOO ART
               </div>
             </div>
@@ -90,10 +90,10 @@ const Hero = () => {
           <div className="relative order-1 lg:order-2 flex justify-center lg:justify-end">
             <div className="relative">
               {/* Main image container */}
-              <div className="relative w-80 h-80 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px] rounded-full overflow-hidden">
+              <div className="relative w-79 h-79 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px] rounded-full overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-fuchsia-500/20 to-violet-500/20 rounded-full animate-pulse"></div>
                 <img
-                  src="/lovable-uploads/e3ad36b4-367a-4e0f-a156-dd24ab626503.png"
+                  src="/public/lovable-uploads/ChatGPT Image Jul 7, 2025, 11_32_02 PM-Photoroom.png"
                   alt="Cyberpunk Tattoo Art"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
@@ -101,8 +101,8 @@ const Hero = () => {
               </div>
 
               {/* Glowing ring effects */}
-              <div className="absolute inset-0 w-80 h-80 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px] border-2 border-purple-400/30 rounded-full animate-spin-slow"></div>
-              <div className="absolute inset-2 w-76 h-76 sm:w-92 sm:h-92 lg:w-[492px] lg:h-[492px] border border-fuchsia-400/20 rounded-full animate-reverse-spin"></div>
+              <div className="absolute inset-0 w-0 h-0 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px] border-2 border-purple-400/30 rounded-full animate-spin-slow"></div>
+              <div className="absolute inset-0 w-0 h-0 sm:w-92 sm:h-92 lg:w-[492px] lg:h-[492px] border border-fuchsia-400/20 rounded-full animate-reverse-spin"></div>
             </div>
           </div>
         </div>

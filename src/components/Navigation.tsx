@@ -43,8 +43,8 @@ const Navigation = ({
         className="
           fixed top-0 left-0 w-full z-50
           flex items-center justify-between
-          bg-black/30 backdrop-blur-xl border-b border-purple-400/20
-          min-h-[56px] px-4 md:px-8
+          bg-black/30 bg-black/30 dark:bg-black/60 transition-colors duration-1000 backdrop-blur-xl border-b border-purple-400/10
+          min-h-[54px] px-4 md:px-8
         "
       >
         {/* LADO ESQUERDO: Botão de tema */}
@@ -68,13 +68,13 @@ const Navigation = ({
               <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
                 {dark ? (
                   <img
-                    src="/lovable-uploads/fundo-escuro.png"
+                    src="/public/lovable-uploads/imagem branca.png"
                     alt="Paisagem noturna"
                     className="w-full h-full object-cover"
                   />
                 ) : (
                   <img
-                    src="/lovable-uploads/imagem-fundo.jpg"
+                    src="/public/lovable-uploads/claro.jpeg"
                     alt="Paisagem clara"
                     className="w-full h-full object-cover"
                   />
@@ -135,11 +135,21 @@ const Navigation = ({
       >
         <div className="absolute inset-0 bg-black/90 backdrop-blur-sm"></div>
         <div
-          className={`absolute right-0 top-0 h-full w-80 bg-gradient-to-b from-black via-purple-950/50 to-black backdrop-blur-xl border-l border-purple-400/30 transform transition-transform duration-300 ${
+          className={`absolute right-0 top-0 h-full w-80 
+          bg-[url('/public/lovable-uploads/nuvens.png')] 
+          bg-cover bg-center
+          bg-gradient-to-b from-black via-purple-950/50 to-black 
+          backdrop-blur-xl border-10 border-purple-400/30 
+          transform transition-transform duration-300 ${
             isOpen ? "translate-x-0" : "translate-x-full"
           }`}
         >
           <div className="flex flex-col h-full pt-20 px-6">
+            <img
+              src="/public/lovable-uploads/ChatGPT Image Jul 7, 2025, 11_45_22 PM.png"
+              alt="Logo do Estúdio"
+              className="mx-auto mb-8 w-20 h-20 rounded-full object-cover shadow-lg"
+            />
             <div className="space-y-6">
               {navItems.map((item) => {
                 const Icon = item.icon;
