@@ -1,20 +1,19 @@
 import { useState } from "react";
-import {
-  Menu,
-  X,
-  MessageCircle,
-  User,
-  Image,
-  Phone,
-  Home,
-  Info,
-} from "lucide-react";
+import { Menu, X, MessageCircle, Image, Phone, Home, Info } from "lucide-react";
 
-const Navigation = () => {
+const highlighColor = "#b464ffaa";
+
+const Navigation = ({
+  dark,
+  setDark,
+}: {
+  dark: boolean;
+  setDark: (d: boolean) => void;
+}) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const handleWhatsAppClick = () => {
-    const phoneNumber = "3587057922"; // Replace with your WhatsApp number in international format
+    const phoneNumber = "3587057922";
     const message = "Olá! Gostaria de agendar uma sessão de tatuagem.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
@@ -39,32 +38,94 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Mobile Menu Button */}
-      <button
-        onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-6 right-6 z-50 md:hidden bg-black/50 backdrop-blur-md border border-purple-400/30 rounded-xl p-3 hover:bg-purple-500/20 transition-all duration-300"
+      {/* TopBar principal */}
+      <header
+        className="
+          fixed top-0 left-0 w-full z-50
+          flex items-center justify-between
+          bg-black/30 backdrop-blur-xl border-b border-purple-400/20
+          min-h-[56px] px-4 md:px-8
+        "
       >
-        {isOpen ? (
-          <X className="h-6 w-6 text-purple-400" />
-        ) : (
-          <Menu className="h-6 w-6 text-purple-400" />
-        )}
-      </button>
-
-      {/* Desktop Navigation */}
-      <nav className="hidden md:flex fixed top-8 right-8 z-40 bg-black/30 backdrop-blur-xl border border-purple-400/20 rounded-2xl p-2">
-        <div className="flex space-x-1">
-          {navItems.map((item) => (
-            <button
-              key={item.id}
-              onClick={() => scrollToSection(item.id)}
-              className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-purple-500/20 rounded-xl transition-all duration-300"
+        {/* LADO ESQUERDO: Botão de tema */}
+        <div className="flex items-center">
+          <button
+            onClick={() => {
+              console.log("Trocando tema");
+              setDark(!dark);
+            }}
+            className="px-2 py-1 rounded-full"
+            aria-label="Alternar modo claro/escuro"
+            type="button"
+          >
+            <div
+              className="relative w-16 h-8 rounded-full flex items-center transition-colors duration-300 border-2 border-purple-400"
+              style={{
+                background: "#191927",
+                boxShadow: "0 2px 10px #000a",
+              }}
             >
-              {item.label}
-            </button>
-          ))}
+              <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
+                {dark ? (
+                  <img
+                    src="/lovable-uploads/fundo-escuro.png"
+                    alt="Paisagem noturna"
+                    className="w-full h-full object-cover"
+                  />
+                ) : (
+                  <img
+                    src="/lovable-uploads/imagem-fundo.jpg"
+                    alt="Paisagem clara"
+                    className="w-full h-full object-cover"
+                  />
+                )}
+              </div>
+              <span
+                className="absolute top-1 left-1 w-6 h-6 rounded-full transition-transform duration-300 shadow-lg"
+                style={{
+                  transform: dark ? "translateX(32px)" : "translateX(0px)",
+                  backgroundColor: highlighColor,
+                  border: `2px solid ${highlighColor}`,
+                }}
+              />
+            </div>
+          </button>
         </div>
-      </nav>
+
+        {/* LADO DIREITO: navegação desktop */}
+        <nav className="hidden md:flex items-center z-40">
+          <div className="flex space-x-1">
+            {navItems.map((item) => (
+              <button
+                key={item.id}
+                onClick={() => scrollToSection(item.id)}
+                className="px-4 py-2 text-sm font-medium text-gray-300 hover:text-white hover:bg-purple-500/20 rounded-xl transition-all duration-300"
+              >
+                {item.label}
+              </button>
+            ))}
+            <button
+              onClick={handleWhatsAppClick}
+              className="ml-3 flex items-center space-x-2 bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-600 hover:to-fuchsia-600 text-white rounded-xl py-2 px-4 transition-all duration-300 font-medium"
+            >
+              <MessageCircle className="h-5 w-5" />
+              <span>WhatsApp</span>
+            </button>
+          </div>
+        </nav>
+
+        {/* Menu mobile hamburger */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="md:hidden bg-black/50 backdrop-blur-md border border-purple-400/30 rounded-xl p-3 hover:bg-purple-500/20 transition-all duration-300"
+        >
+          {isOpen ? (
+            <X className="h-6 w-6 text-purple-400" />
+          ) : (
+            <Menu className="h-6 w-6 text-purple-400" />
+          )}
+        </button>
+      </header>
 
       {/* Mobile Navigation Menu */}
       <div

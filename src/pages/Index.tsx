@@ -1,4 +1,3 @@
-import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import Portfolio from "@/components/Portfolio";
 import About from "@/components/About";
@@ -8,7 +7,6 @@ import "../styles/centralize.css";
 const Index = () => {
   return (
     <div className="Centralize-container">
-      <Navigation />
       <Hero />
       <About />
       <Portfolio />

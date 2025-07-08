@@ -1,34 +1,15 @@
 import { Button } from "@/components/ui/button";
 import { MessageCircle, Users, Calendar, Award } from "lucide-react";
-import { useState, useEffect } from "react";
+
 const Hero = () => {
   const handleWhatsAppClick = () => {
-    const phoneNumber = "3587057922"; // Replace with your WhatsApp number in international format
+    const phoneNumber = "3587057922";
     const message = "Olá! Gostaria de agendar uma sessão de tatuagem.";
     const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
       message
     )}`;
     window.open(whatsappUrl, "_blank");
   };
-
-  // Toggle Dark Mode State and Effect
-  const [dark, setDark] = useState(() =>
-    typeof window !== "undefined"
-      ? document.documentElement.classList.contains("dark")
-      : false
-  );
-
-  useEffect(() => {
-    if (dark) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  }, [dark]);
-
-  const highlighColor = "#b464ffaa";
 
   return (
     <section
@@ -46,56 +27,6 @@ const Hero = () => {
         "
         aria-hidden="true"
       />
-
-      {/* Toggle Dark Mode - canto superior esquerdo */}
-      <button
-        onClick={() => setDark((d) => !d)}
-        className="fixed top-4 left-4 z-50 px-4 py-2 rounded-full"
-        aria-label="Alternar modo claro/escuro"
-        type="button"
-      >
-        <div
-          className={`
-      relative w-24 h-12 rounded-full flex items-center transition-colors duration-300
-    `}
-          style={{
-            border: `3px solid ${highlighColor}`,
-            //background: "#fff",
-            boxShadow: "0 4px 20px #000a",
-          }}
-        >
-          {/* Track com imagem de fundo (dark/light) */}
-          <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
-            {dark ? (
-              <img
-                src="/public/lovable-uploads/fundo-escuro.png"
-                alt="Paisagem noturna"
-                className="w-full h-full object-cover"
-                style={{ opacity: 1, transition: "opacity 0.4s" }}
-              />
-            ) : (
-              <img
-                src="/public/lovable-uploads/imagem-fundo.jpg"
-                alt="Paisagem clara"
-                className="w-full h-full object-cover"
-                style={{ opacity: 1, transition: "opacity 0.4s" }}
-              />
-            )}
-          </div>
-          {/* Círculo do toggle */}
-          <span
-            className={`
-        absolute top-1 left-1 w-8 h-8 rounded-full transition-transform duration-300 shadow-lg"
-          style
-      `}
-            style={{
-              transform: dark ? "translateX(40px)" : "translateX(0px)",
-              backgroundColor: highlighColor,
-              border: `2.5px solid ${highlighColor}`,
-            }}
-          />
-        </div>
-      </button>
 
       {/* Animated background particles */}
       <div className="absolute inset-0">
