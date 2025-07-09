@@ -1,6 +1,20 @@
 import { useState } from "react";
-import { Menu, X, MessageCircle, Image, Phone, Home, Info } from "lucide-react";
-
+import { HamburgerButton } from "./HamburgerButton";
+import { ToggleDayNight } from "./ToggleDayNight";
+import { AnimatedCTAButton } from "./AnimatedCTAButtons";
+import {
+  Menu,
+  X,
+  MessageCircle,
+  Image,
+  Phone,
+  Home,
+  Info,
+  Sun,
+  Moon,
+  ChevronLeft,
+} from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 const highlighColor = "#b464ffaa";
 
 const Navigation = ({
@@ -41,57 +55,10 @@ const Navigation = ({
       {/* TopBar principal */}
       <header
         className="
-          fixed top-0 left-0 w-full z-50
-          flex items-center justify-between
-          bg-black/30 bg-black/30 dark:bg-black/60 transition-colors duration-1000 backdrop-blur-xl border-b border-purple-400/10
-          min-h-[54px] px-4 md:px-8
-        "
+        fixed top-0 left-0 w-full z-50
+        flex items-center justify-between w-full min-h-[54px] px-4 md:px-8 pr-2
+        bg-black/30 dark:bg-black/60 transition-colors duration-1000 backdrop-blur-xl border-b border-purple-400/10"
       >
-        {/* LADO ESQUERDO: Botão de tema */}
-        <div className="flex items-center">
-          <button
-            onClick={() => {
-              console.log("Trocando tema");
-              setDark(!dark);
-            }}
-            className="px-2 py-1 rounded-full"
-            aria-label="Alternar modo claro/escuro"
-            type="button"
-          >
-            <div
-              className="relative w-16 h-8 rounded-full flex items-center transition-colors duration-300 border-2 border-purple-400"
-              style={{
-                background: "#191927",
-                boxShadow: "0 2px 10px #000a",
-              }}
-            >
-              <div className="absolute inset-0 overflow-hidden rounded-full pointer-events-none">
-                {dark ? (
-                  <img
-                    src="/public/lovable-uploads/imagem branca.png"
-                    alt="Paisagem noturna"
-                    className="w-full h-full object-cover"
-                  />
-                ) : (
-                  <img
-                    src="/public/lovable-uploads/claro.jpeg"
-                    alt="Paisagem clara"
-                    className="w-full h-full object-cover"
-                  />
-                )}
-              </div>
-              <span
-                className="absolute top-1 left-1 w-6 h-6 rounded-full transition-transform duration-300 shadow-lg"
-                style={{
-                  transform: dark ? "translateX(32px)" : "translateX(0px)",
-                  backgroundColor: highlighColor,
-                  border: `2px solid ${highlighColor}`,
-                }}
-              />
-            </div>
-          </button>
-        </div>
-
         {/* LADO DIREITO: navegação desktop */}
         <nav className="hidden md:flex items-center z-40">
           <div className="flex space-x-1">
@@ -115,69 +82,87 @@ const Navigation = ({
         </nav>
 
         {/* Menu mobile hamburger */}
-        <button
-          onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden bg-black/50 backdrop-blur-md border border-purple-400/30 rounded-xl p-3 hover:bg-purple-500/20 transition-all duration-300"
-        >
-          {isOpen ? (
-            <X className="h-6 w-6 text-purple-400" />
-          ) : (
-            <Menu className="h-6 w-6 text-purple-400" />
-          )}
-        </button>
+        <span className="flex-1" />
+        <HamburgerButton open={isOpen} onClick={() => setIsOpen(!isOpen)} />
       </header>
 
       {/* Mobile Navigation Menu */}
-      <div
-        className={`fixed inset-0 z-40 transition-opacity duration-300 md:hidden ${
-          isOpen ? "opacity-100" : "opacity-0 pointer-events-none"
-        }`}
-      >
-        <div className="absolute inset-0 bg-black/90 backdrop-blur-sm"></div>
-        <div
-          className={`absolute right-0 top-0 h-full w-80 
-          bg-[url('/public/lovable-uploads/nuvens.png')] 
-          bg-cover bg-center
-          bg-gradient-to-b from-black via-purple-950/50 to-black 
-          backdrop-blur-xl border-10 border-purple-400/30 
-          transform transition-transform duration-300 ${
-            isOpen ? "translate-x-0" : "translate-x-full"
-          }`}
-        >
-          <div className="flex flex-col h-full pt-20 px-6">
-            <img
-              src="/public/lovable-uploads/ChatGPT Image Jul 7, 2025, 11_45_22 PM.png"
-              alt="Logo do Estúdio"
-              className="mx-auto mb-8 w-20 h-20 rounded-full object-cover shadow-lg"
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            className="fixed inset-0 z-40 md:hidden flex justify-center items-center"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+          >
+            {/* BACKDROP BLUR atrás do menu */}
+            <div
+              className="absolute inset-0 bg-black/30 backdrop-blur-md transition-opacity duration-300"
+              onClick={() => setIsOpen(false)}
             />
-            <div className="space-y-6">
-              {navItems.map((item) => {
-                const Icon = item.icon;
-                return (
-                  <button
-                    key={item.id}
-                    onClick={() => scrollToSection(item.id)}
-                    className="flex items-center space-x-4 text-lg font-medium text-gray-300 hover:text-white hover:bg-purple-500/20 p-3 rounded-xl transition-all duration-300 w-full text-left"
-                  >
-                    <Icon className="h-5 w-5" />
-                    <span>{item.label}</span>
-                  </button>
-                );
-              })}
-            </div>
-
-            <div className="mt-auto mb-8">
+            {/* Sidebar/menu lateral */}
+            <motion.div
+              className="relative w-80 h-[90vh] bg-black/40 border-l border-purple-400/30 flex flex-col overflow-hidden rounded-3xl shadow-2xl"
+              initial={{ x: 100, opacity: 0, scale: 0.97 }}
+              animate={{ x: 0, opacity: 1, scale: 1 }}
+              exit={{ x: 100, opacity: 0, scale: 0.98 }}
+              transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
+              onClick={(e) => e.stopPropagation()}
+            >
+              {/* Fundo de nuvens no menu lateral, sem blur */}
+              <div
+                className="absolute inset-0 z-0"
+                style={{
+                  backgroundImage: "url('/lovable-uploads/nuvens.png')",
+                  backgroundSize: "cover",
+                  backgroundPosition: "center",
+                  opacity: 1,
+                }}
+              />
+              {/* Botão circular de fechar */}
               <button
-                onClick={handleWhatsAppClick}
-                className="w-full flex items-center justify-center space-x-3 bg-gradient-to-r from-purple-500 to-fuchsia-500 hover:from-purple-600 hover:to-fuchsia-600 text-white border-0 rounded-xl py-4 px-6 transition-all duration-300 font-medium"
+                onClick={() => setIsOpen(false)}
+                className="absolute -right-6 top-10 bg-white dark:bg-zinc-800 shadow-lg w-10 h-10 flex items-center justify-center rounded-full border z-20"
               >
-                <MessageCircle className="h-5 w-5" />
-                <span>WhatsApp</span>
+                <ChevronLeft className="text-purple-500" />
               </button>
-            </div>
-          </div>
-        </div>
-      </div>
+              {/* Conteúdo do menu lateral */}
+              <div className="relative z-10 flex flex-col h-full pt-20 px-6">
+                <img
+                  src="/lovable-uploads/ChatGPT Image Jul 7, 2025, 11_45_22 PM.png"
+                  alt="Logo do Estúdio"
+                  className="mx-auto mb-8 w-20 h-20 rounded-full object-cover shadow-lg"
+                />
+                <div className="space-y-6">
+                  {navItems.map((item) => {
+                    const Icon = item.icon;
+                    return (
+                      <button
+                        key={item.id}
+                        onClick={() => scrollToSection(item.id)}
+                        className="flex items-center space-x-4 text-lg font-medium text-gray-300 hover:text-white hover:bg-purple-500/20 p-3 rounded-xl transition-all duration-300 w-full text-left"
+                      >
+                        <Icon className="h-5 w-5" />
+                        <span>{item.label}</span>
+                      </button>
+                    );
+                  })}
+                </div>
+                {/* Dark/Light mode dentro do menu, destacado */}
+                <div className="mt-8 flex justify-center">
+                  <ToggleDayNight
+                    isDark={dark}
+                    onToggle={() => setDark(!dark)}
+                  />
+                </div>
+                <div className="mt-auto mb-8">
+                  <AnimatedCTAButton onClick={handleWhatsAppClick} />
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </>
   );
 };
