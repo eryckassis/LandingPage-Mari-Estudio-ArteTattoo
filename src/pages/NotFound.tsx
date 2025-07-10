@@ -1,27 +1,43 @@
-import { useLocation } from "react-router-dom";
-import { useEffect } from "react";
-import { motion } from "framer-motion";
-const NotFound = () => {
-  const location = useLocation();
+import React from "react";
+import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
-  useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
-  }, [location.pathname]);
-
+const App = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-center">
-        <h1 className="text-4xl font-bold mb-4">404</h1>
-        <p className="text-xl text-gray-600 mb-4">Oops! Page not found</p>
-        <a href="/" className="text-blue-500 hover:text-blue-700 underline">
-          Return to Home
-        </a>
+    <div
+      style={{
+        minHeight: "100vh",
+        width: "100vw",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        background: "#fff",
+      }}
+    >
+      <div
+        style={{
+          width: "min(90vw, 440px)",
+          height: "min(90vw, 440px)",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <DotLottieReact
+          src="https://lottie.host/07fd9976-3243-47a8-a0b8-3159bce9847d/FSrlo3HoXm.lottie"
+          loop
+          autoplay
+          style={{
+            width: "100%",
+            height: "100%",
+          }}
+        />
       </div>
+      <h1 style={{ marginTop: 32, fontSize: 24, color: "#333" }}>
+        Página não encontrada
+      </h1>
     </div>
   );
 };
 
-export default NotFound;
+export default App;
