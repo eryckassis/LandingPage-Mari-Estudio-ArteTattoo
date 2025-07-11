@@ -2,13 +2,44 @@ import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 import Index from "../pages/Index";
 import NotFound from "../pages/NotFound";
 import { useEffect, useState } from "react";
 import Navigation from "../components/Navigation";
 
 const queryClient = new QueryClient();
+
+function AppContent({
+  dark,
+  setDark,
+}: {
+  dark: boolean;
+  setDark: (v: boolean) => void;
+}) {
+  const location = useLocation();
+  const isNotFound =
+    location.pathname === "/src/pages/NotFound.tsx" ||
+    location.pathname === "/notfound" ||
+    location.pathname === "*" ||
+    location.pathname === "/src/pages/NotFound.tsx"; // ajuste se necessário
+
+  // Checa se está na rota NotFound
+  const hideNavigation =
+    location.pathname === "*" ||
+    location.pathname === "/404" ||
+    location.pathname === "/notfound";
+
+  return (
+    <>
+      {!hideNavigation && <Navigation dark={dark} setDark={setDark} />}
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </>
+  );
+}
 
 const App = () => {
   const [dark, setDark] = useState(() =>
@@ -33,14 +64,8 @@ const App = () => {
         <TooltipProvider>
           <Toaster />
           <Sonner />
-
-          <Navigation dark={dark} setDark={setDark} />
-
           <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Index />} />
-              <Route path="*" element={<NotFound />} />
-            </Routes>
+            <AppContent dark={dark} setDark={setDark} />
           </BrowserRouter>
         </TooltipProvider>
       </QueryClientProvider>

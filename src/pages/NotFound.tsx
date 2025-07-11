@@ -1,28 +1,47 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { DotLottieReact } from "@lottiefiles/dotlottie-react";
 
+// Para esconder a top bar apenas nessa página, você pode usar um efeito colateral
+// para adicionar uma classe ao body ou algum controle/contexto de layout.
+// Aqui está uma solução simples usando body, mas adapte caso use layout global.
+
 const NotFound = () => {
+  useEffect(() => {
+    // Adiciona uma classe ao body para esconder a top bar
+    document.body.classList.add("hide-top-bar");
+    // Redirecionamento após 10 segundos
+    const timer = setTimeout(() => {
+      window.location.href = "/";
+    }, 10000);
+    return () => {
+      document.body.classList.remove("hide-top-bar");
+      clearTimeout(timer);
+    };
+  }, []);
+
   return (
     <div
       style={{
-        minHeight: "100vh",
+        minHeight: "100dvh",
         width: "100vw",
         display: "flex",
         flexDirection: "column",
         justifyContent: "center",
         alignItems: "center",
-        backgroundImage: "url('/lovable-uploads/iphone.jpg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundRepeat: "no-repeat",
+        background: "#fff",
+        color: "#111",
+        textAlign: "center",
+        padding: 0,
+        boxSizing: "border-box",
       }}
     >
       <div
         style={{
+          flex: 1,
           display: "flex",
           flexDirection: "column",
-          alignItems: "center",
           justifyContent: "center",
+          alignItems: "center",
           width: "100%",
           maxWidth: 420,
           margin: "auto",
@@ -30,8 +49,8 @@ const NotFound = () => {
       >
         <div
           style={{
-            width: "min(90vw, 320px)",
-            height: "min(90vw, 180px)",
+            width: "min(90vw, 340px)",
+            height: "min(45vw, 170px)",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
@@ -48,12 +67,18 @@ const NotFound = () => {
             }}
           />
         </div>
-        <span style={{ fontSize: "2rem", fontWeight: 700, marginBottom: 0 }}>
+        <span
+          style={{
+            fontSize: "clamp(1.5rem, 6vw, 2.5rem)",
+            fontWeight: 700,
+            marginBottom: 0,
+          }}
+        >
           Oops!
         </span>
         <span
           style={{
-            fontSize: "6.5rem",
+            fontSize: "clamp(4rem, 22vw, 7rem)",
             fontWeight: 900,
             letterSpacing: "2px",
             lineHeight: 1,
@@ -64,24 +89,19 @@ const NotFound = () => {
         </span>
         <span
           style={{
-            fontSize: "1.5rem",
-            fontWeight: 500,
-            letterSpacing: "0.5px",
-            lineHeight: 1.5,
-
-            textAlign: "center",
-            padding: "0 20px",
-            maxWidth: 322,
-            margin: "0 auto 15px auto",
-            display: "",
+            fontSize: "clamp(1rem, 3vw, 1.2rem)",
+            fontWeight: 400,
+            maxWidth: 340,
+            margin: "0 auto",
+            display: "block",
             wordBreak: "break-word",
           }}
         >
-          Sua Página Está em Manutenção
+          Your page is currently under maintenance
           <br />
-          Vamos enviá-la de volta a página inicial
+          and will guide you back to the homepage
           <br />
-          Depois de 10 segundos.
+          after 10 seconds.
         </span>
       </div>
     </div>

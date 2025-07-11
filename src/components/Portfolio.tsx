@@ -8,17 +8,15 @@ const Portfolio = () => {
       id: 1,
       title: "Arte Realista",
       category: "Realismo",
-      image:
-        "https://images.unsplash.com/photo-1565058379802-bbe93b2b2a2a?w=500&h=500&fit=crop",
-      likes: "2.3K",
-      views: "15K",
+      image: "/uploads/Screenshot 2025-07-10 214334.png",
+      likes: "",
+      views: "",
     },
     {
       id: 2,
       title: "Geometria Sagrada",
       category: "Geométrico",
-      image:
-        "https://images.unsplash.com/photo-1590736969955-71cc94901144?w=500&h=500&fit=crop",
+      image: "/uploads/Screenshot 2025-07-10 213751.png",
       likes: "1.8K",
       views: "12K",
     },
@@ -26,8 +24,7 @@ const Portfolio = () => {
       id: 3,
       title: "Old School Vibes",
       category: "Tradicional",
-      image:
-        "https://images.unsplash.com/photo-1568515045052-f9a854d70bfd?w=500&h=500&fit=crop",
+      image: "/uploads/Screenshot 2025-07-10 214322.png",
       likes: "3.1K",
       views: "18K",
     },
@@ -35,17 +32,14 @@ const Portfolio = () => {
       id: 4,
       title: "Minimalismo",
       category: "Clean Lines",
-      image:
-        "https://images.unsplash.com/photo-1611501275019-9b5cda994e8d?w=500&h=500&fit=crop",
-      likes: "1.5K",
+      image: "/uploads/Screenshot 2025-07-10 214316.png",
       views: "9K",
     },
     {
       id: 5,
       title: "Explosão de Cores",
       category: "Colorido",
-      image:
-        "https://images.unsplash.com/photo-1597149492419-0d900ac2d2eb?w=500&h=500&fit=crop",
+      image: "/uploads/Screenshot 2025-07-10 213724.png",
       likes: "2.7K",
       views: "16K",
     },
@@ -53,8 +47,7 @@ const Portfolio = () => {
       id: 6,
       title: "Arte Abstrata",
       category: "Experimental",
-      image:
-        "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=500&h=500&fit=crop",
+      image: "/uploads/Screenshot 2025-07-10 214647.png",
       likes: "2.1K",
       views: "13K",
     },

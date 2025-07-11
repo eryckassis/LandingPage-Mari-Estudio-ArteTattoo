@@ -113,7 +113,7 @@ const Navigation = ({
               <div
                 className="absolute inset-0 z-0"
                 style={{
-                  backgroundImage: "url('/lovable-uploads/nuvens.png')",
+                  backgroundImage: "url('/uploads/nuvens.png')",
                   backgroundSize: "cover",
                   backgroundPosition: "center",
                   opacity: 1,
@@ -129,7 +129,7 @@ const Navigation = ({
               {/* Conteúdo do menu lateral */}
               <div className="relative z-10 flex flex-col h-full pt-20 px-6">
                 <img
-                  src="/lovable-uploads/ChatGPT Image Jul 7, 2025, 11_45_22 PM.png"
+                  src="/uploads/ChatGPT Image Jul 7, 2025, 11_45_22 PM.png"
                   alt="Logo do Estúdio"
                   className="mx-auto mb-8 w-20 h-20 rounded-full object-cover shadow-lg"
                 />

@@ -3,6 +3,10 @@
 @tailwind utilities;
 @import "fontsource/anton/index.css";
 
+.hide-top-bar .top-bar {
+  display: none !important;
+}
+
 @layer base {
   :root {
     --background: 240 10% 3.9%;

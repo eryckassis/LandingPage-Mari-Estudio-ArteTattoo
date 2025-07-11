@@ -20,8 +20,8 @@ const Hero = () => {
       <div
         className="
           fixed inset-0 z-0 pointer-events-none
-          bg-[url('/lovable-uploads/claro.jpeg')] bg-cover bg-center bg-no-repeat
-          dark:bg-[url('/lovable-uploads/nuvens.png')]
+          bg-[url('/uploads/claro.jpeg')] bg-cover bg-center bg-no-repeat
+          dark:bg-[url('/uploads/nuvens.png')]
           transition-colors duration-1000
          filter blur-[2px] brightness-70 dark:brightness-40
         "
@@ -93,7 +93,7 @@ const Hero = () => {
               <div className="relative w-79 h-79 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px] rounded-full overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-fuchsia-500/20 to-violet-500/20 rounded-full animate-pulse"></div>
                 <img
-                  src="/public/lovable-uploads/ChatGPT Image Jul 7, 2025, 11_32_02 PM-Photoroom.png"
+                  src="/uploads/ChatGPT Image Jul 7, 2025, 11_32_02 PM-Photoroom.png"
                   alt="Cyberpunk Tattoo Art"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
