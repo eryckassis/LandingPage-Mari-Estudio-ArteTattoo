@@ -20,21 +20,13 @@ const Hero = () => {
       <div
         className="
           fixed inset-0 z-0 pointer-events-none
-          bg-[url('/uploads/claro.jpeg')] bg-cover bg-center bg-no-repeat
-          dark:bg-[url('/uploads/nuvens.png')]
+          bg-[url('/uploads/Dragomorado.webp')] bg-cover bg-center bg-no-repeat
+          dark:bg-[url('/uploads/nuvens.webp')]
           transition-colors duration-1000
-         filter blur-[2px] brightness-70 dark:brightness-40
+         filter blur-[6px] brightness-70 dark:brightness-40
         "
         aria-hidden="true"
       />
-
-      {/* Animated background particles */}
-      <div className="absolute inset-0">
-        <div className="absolute top-1/4 left-1/4 w-2 h-2 bg-purple-400 rounded-full animate-pulse opacity-60"></div>
-        <div className="absolute top-3/4 right-1/4 w-1 h-1 bg-violet-400 rounded-full animate-pulse delay-1000 opacity-40"></div>
-        <div className="absolute bottom-1/4 left-1/3 w-3 h-3 bg-fuchsia-400 rounded-full animate-pulse delay-500 opacity-50"></div>
-        <div className="absolute top-1/2 right-1/3 w-1 h-1 bg-purple-300 rounded-full animate-pulse delay-700 opacity-30"></div>
-      </div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 min-h-screen flex items-center">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-16 items-center w-full">
@@ -93,7 +85,7 @@ const Hero = () => {
               <div className="relative w-79 h-79 sm:w-96 sm:h-96 lg:w-[500px] lg:h-[500px] rounded-full overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-purple-500/20 via-fuchsia-500/20 to-violet-500/20 rounded-full animate-pulse"></div>
                 <img
-                  src="/uploads/ChatGPT Image Jul 7, 2025, 11_32_02 PM-Photoroom.png"
+                  src="/uploads/ChatGPT Image Jul 7, 2025, 11_32_02 PM-Photoroom.webp"
                   alt="Cyberpunk Tattoo Art"
                   className="w-full h-full object-cover transition-transform duration-700 hover:scale-110"
                 />
