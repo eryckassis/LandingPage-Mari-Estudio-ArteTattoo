@@ -1,4 +1,4 @@
-# Mari Ink Cyberpunk Agenda
+# Landin Page Mari Estúdio arte & Tattoo
 
 <div align="center" style="margin-bottom: 16px;">
   <a href="https://react.dev" target="_blank">
