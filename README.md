@@ -32,7 +32,7 @@
 
 ## Overview
 
-Mari Ink Cyberpunk Agenda is a visually striking, fully responsive landing page for a tattoo artist. Built using React, Next.js, TypeScript, CSS3, and HTML5, this project highlights advanced web development, UI/UX choices, and problem-solving in real-world client scenarios. Deploy is handled by Vercel for speed and global reach.
+Mari Estúdio arte & Tattoo is a visually striking, fully responsive landing page for a tattoo artist. Built using React, Next.js, TypeScript, CSS3, and HTML5, this project highlights advanced web development, UI/UX choices, and problem-solving in real-world client scenarios. Deploy is handled by Vercel for speed and global reach.
 
 ---
 
