@@ -116,7 +116,7 @@ const Contact = () => {
                 <Button
                   onClick={handleWhatsAppClick}
                   size="lg"
-                  className="w-full bg-gradient-to-r from-green-500 to-green-600 hover:from-green-600 hover:to-green-700 text-white font-bold py-4 text-lg rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-green-500/20"
+                  className="w-full bg-[#222222] hover:bg-[#333333] text-[#f6f3f7] font-bold py-4 text-lg rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-gray-500/20"
                 >
                   <MessageCircle className="mr-3 h-6 w-6" />
                   Chamar no WhatsApp
@@ -126,7 +126,7 @@ const Contact = () => {
                   onClick={handleInstagramClick}
                   variant="outline"
                   size="lg"
-                  className="w-full border-2 border-purple-400/60 text-purple-400 hover:bg-purple-400/10 hover:border-purple-400 py-4 text-lg rounded-xl transition-all duration-300"
+                  className="w-full border-2 text-purple-400 hover:bg-purple-400/10 hover:border-purple-400 py-4 text-lg rounded-xl transition-all duration-300"
                 >
                   <Instagram className="mr-3 h-6 w-6" />
                   Seguir no Instagram
