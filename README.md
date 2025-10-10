@@ -1,4 +1,4 @@
-# Landin Page Mari Estúdio arte & Tattoo
+# Landing Page Mari Estúdio arte & Tattoo
 
 <div align="center" style="margin-bottom: 16px;">
   <a href="https://react.dev" target="_blank">
@@ -24,7 +24,7 @@
 ---
 
 <div align="center" style="margin-bottom: 16px;">
-  <img src="https://github.com/user-attachments/assets/3a1086ab-4e1d-477f-989d-7a1c004cdace" alt="Screenshot 2025-07-11 025341" width="270"/>
+  <img src="https://github.com/user-attachments/assets/1bc6deb9-1160-439b-9721-9e5309e537f9" alt="Screenshot 2025-07-11 025341" width="270"/>
 </div>
 
 
