@@ -13,6 +13,7 @@ export default {
     extend: {
       fontFamily: {
         anton: ['"Anton"', "sans-serif"],
+        "new-rocker": ['"New Rocker"', "serif"],
       },
       colors: {
         border: "hsl(var(--border))",

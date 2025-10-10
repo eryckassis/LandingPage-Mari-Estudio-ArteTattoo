@@ -34,19 +34,16 @@ const Hero = () => {
           <div className="space-y-6 sm:space-y-8 order-2 lg:order-1 flex flex-col items-center text-center max-w-md mx-auto">
             {/* Studio branding */}
             <div className="mb-6">
-              <div className="font-anton text-4xl sm:text-5xl md:text-6xl font-black text-white transition-colors duration-100000 uppercase mb-2 tracking-wider flex items-center justify-center gap-2 ">
-                ESTÚDIO MARI TATTOO ART
+              <div className="font-new-rocker text-7xl sm:text-8xl md:text-6xl font-black text-white transition-colors duration-100000 uppercase mb-2 tracking-wider flex items-center justify-center gap-2 mix-blend-difference">
+                MARI TATTOO ART
               </div>
             </div>
 
             {/* Main title */}
             <div>
-              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight tracking-tight">
-                TATT
+              <h1 className="font-new-rocker text-7xl sm:text-9xl md:text-6xl lg:text-7xl font-black text-white mb-4 leading-tight tracking-tight">
                 <span className="relative inline-block">
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-violet-400">
-                    OO
-                  </span>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-fuchsia-400 to-violet-400"></span>
                   <div className="absolute -inset-1 bg-gradient-to-r from-purple-400/20 via-fuchsia-400/20 to-violet-400/20 blur-xl rounded-full"></div>
                 </span>
               </h1>
