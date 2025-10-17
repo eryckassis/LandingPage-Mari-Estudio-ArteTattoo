@@ -27,7 +27,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "Localização",
-      info: "Rua barão do campo místico, 219",
+      info: "Rua Pref Chagas, 318/0 Casarão - Centro.",
       subtitle: "Poços de Caldas - SP",
       action: () => window.open("https://maps.google.com", "_blank"),
     },
